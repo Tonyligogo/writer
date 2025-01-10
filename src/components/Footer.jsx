@@ -1,7 +1,7 @@
 
 function Footer() {
   return (
-    <footer className="pb-5 flex flex-col md:flex-row md:justify-between md:items-end">
+    <footer className="pb-5 px-4 md:px-8 flex flex-col md:flex-row md:justify-between md:items-end">
         <div>
             <div className="w-[120px] md:w-[150px]">
             <h1 className="font-bold text-3xl mb-1 text-center">Writely</h1>

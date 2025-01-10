@@ -1,34 +1,32 @@
-import About from "./components/About"
-import Footer from "./components/Footer"
-import Hero from "./components/Hero"
-import Navbar from "./components/Navbar"
-import Services from "./components/Services"
-import WhyChooseMe from "./components/WhyChooseMe"
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+import Home from "./Home";
+import Register from "./auth/Register";
+import Admin from "./admin/Admin";
+import Login from "./auth/Login";
 function App() {
 
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Home />,
+    },
+    {
+      path: "/register",
+      element: <Register />,
+    },
+    {
+      path: "/login",
+      element: <Login />,
+    },
+    {
+      path: "/writer/admin",
+      element: <Admin />,
+    },
+  ])
+
   return (
-          <main className="bg-dark text-white min-h-screen">
-          <nav>
-            <Navbar/>
-          </nav>
-          <div className="px-4 md:px-8">
-          <section>
-            <Hero/>
-          </section>
-          <section>
-            <About/>
-          </section>
-          <section>
-            <Services/>
-          </section>
-          <section>
-            <WhyChooseMe/>
-          </section>
-          <footer>
-            <Footer/>
-          </footer>
-          </div>
-        </main>
+    <RouterProvider router={router} />
   )
 }
 
