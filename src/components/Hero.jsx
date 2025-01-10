@@ -10,10 +10,10 @@ function Hero() {
   return (
     <div className="h-[95vh] pt-[80px] grid place-content-center">
         <div className="relative">
-        <h1 className="text-2xl lg:text-5xl font-bold text-center">Elevate Your Academic Journey and</h1>
+        <h1 className="text-2xl lg:text-5xl font-bold text-center">Elevate Your Academic Journey through</h1>
         <div className='font-bold text-2xl lg:text-5xl text-center text-transparent bg-gradient-to-r from-blue-800 via-blue-500 to-sky-500 bg-clip-text'>
         <Typewriter options={{
-            strings: ['Unlock your potential', 'Embrace a Brighter Future!', 'Enhance your education'],
+            strings: ['Online Courses help', 'EXAM tips and resources'],
             loop: true,
             autoStart: true,
         }}/>
