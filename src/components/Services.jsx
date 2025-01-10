@@ -9,7 +9,7 @@ const services = [
     },
     {
         title: "Online Class Representation",
-        description: "I attend online classes on behalf of students, actively participating and engaging with the material. This service ensures that students stay on track with their coursework while balancing other commitments."
+        description: "Are you overwhelmed by your online courses? Do you find it challenging to keep up with assignments, projects, and exams? I offer a unique service that allows students to delegate their online coursework to a dedicated professional who will complete the courses on their behalf."
     },
     {
         title: "Exam Support",

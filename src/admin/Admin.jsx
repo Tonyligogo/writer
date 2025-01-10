@@ -44,7 +44,7 @@ function Admin() {
   }
 
   return (
-    <div className="h-screen bg-dark px-4 md:px-8 text-white">
+    <div className="min-h-screen bg-dark px-4 md:px-8 text-white">
       <nav className="py-3 flex justify-between items-center gap-5">
         <div className="w-[120px] md:w-[150px]">
           <h1 className="font-bold text-3xl mb-1 text-center">Writely</h1>

@@ -1,4 +1,3 @@
-import UploadWidget from "./UploadWidget"
 
 function MyWork() {
   return (
@@ -22,7 +21,6 @@ function MyWork() {
           <p className="text-[#b5b7cb] font-semibold">Description</p>
         </li>
       </ul>
-      <UploadWidget/>
     </div>
   )
 }
