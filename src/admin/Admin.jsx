@@ -15,9 +15,6 @@ function Admin() {
       credentials: "include",
     })
       .then((response) => response.json())
-      .then((userInfo) => {
-        console.log(userInfo);
-      });
   }, []);
 
   useEffect(() => {
