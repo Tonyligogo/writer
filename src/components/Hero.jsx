@@ -1,4 +1,3 @@
-import Typewriter from 'typewriter-effect'
 const services = [
     {id:1,name:'Tutoring', position:'-top-1/2 md:-top-3/4 left-0 md:-left-28 bg-blue-500', img:'/arrowDown.svg', imgPosition:'top-[35px] md:top-1/2 -right-8 md:-right-16'},
     {id:2,name:'Assignments', position:'-bottom-1/2 md:-bottom-3/4 -left-0 md:-left-40 bg-orange-500', img:'/arrow.svg', imgPosition:'bottom-[35px] md:bottom-1/2 -right-8 md:-right-16'},
@@ -8,17 +7,10 @@ const services = [
 ]
 function Hero() {
   return (
-    <div className="h-[95vh] pt-[80px] grid place-content-center">
+    <div className="h-[95vh] md:pt-[80px] grid place-content-center">
         <div className="relative">
-        <h1 className="text-2xl lg:text-5xl font-bold text-center">Elevate Your Academic Journey through</h1>
-        <div className='font-bold text-2xl lg:text-5xl text-center text-transparent bg-gradient-to-r from-blue-800 via-blue-500 to-sky-500 bg-clip-text'>
-        <Typewriter options={{
-            strings: ['Online Courses help', 'EXAM tips and resources'],
-            loop: true,
-            autoStart: true,
-        }}/>
-        </div>
-        <p className="text-[#a7a7a7] mt-4 text-center">With me, you&apos;re not just a student; you&apos;re a future leader. Explore my comprehensive services and <br /> take the first step towards academic excellence today!</p>
+        <h1 className="text-2xl lg:text-5xl font-bold text-center">Online Courses help, <br /> Exam tips and resources</h1>
+        <p className="text-[#a7a7a7] mt-4 text-center">Explore my comprehensive services and <br /> take the first step towards academic excellence today!</p>
         {services.map((service)=>(
             <span key={service.id}>
                 <span className={`absolute ${service.position} rounded-lg py-2 px-4 `}>

@@ -19,6 +19,7 @@ function Admin() {
 
   useEffect(() => {
     async function fetchData() {
+      setError(false);
       await fetch(`${server}/writer/admin`)
         .then((response) => response.json())
         .then((data) => {
@@ -102,7 +103,7 @@ function Admin() {
             All your works
           </h2>
           <ul className="flex gap-5 mt-5 flex-wrap pb-5">
-            {data.length > 0 ? (
+            {data && data?.length > 0 ? (
               data?.map((item) => {
                 const mediaFormat = item?.imageUrl?.format;
                 const isImage = imageFormats.includes(mediaFormat);

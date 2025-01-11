@@ -5,6 +5,7 @@ import { server } from "../server";
 function AddWork({onClose}) {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const [isCourse, setIsCourse] = useState(false);
   const [file, setFile] = useState({
     public_id: "",
     secure_url: "",
@@ -19,7 +20,6 @@ function AddWork({onClose}) {
     ) {
         const uploadInfo = uploadedFile.info.files[0]?.uploadInfo;
         if (uploadInfo) {
-            console.log(uploadInfo)
             const { public_id, secure_url, format } = uploadInfo;
             setFile((prevFile) => ({
                 ...prevFile,
@@ -38,6 +38,7 @@ function AddWork({onClose}) {
     const data = {
       title,
       content,
+      isCourse,
       imageUrl: file,
     };
     const response = await fetch(`${server}/writer/admin/work`, {
@@ -76,6 +77,17 @@ function AddWork({onClose}) {
             type="text"
             value={content}
             onChange={(e) => setContent(e.target.value)}
+            className="border border-[#b5b7cb] text-[#b5b7cb] rounded-md p-2 bg-transparent"
+          />
+        </div>
+        <div className="flex flex-col gap-1">
+          <label htmlFor="course">Title</label>
+          <input
+            type="radio"
+            id="course"
+            value="true"
+            checked={isCourse === true}
+            onChange={(e)=>setIsCourse(e.target.value === 'true')}
             className="border border-[#b5b7cb] text-[#b5b7cb] rounded-md p-2 bg-transparent"
           />
         </div>

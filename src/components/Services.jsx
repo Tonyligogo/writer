@@ -9,16 +9,36 @@ const services = [
     },
     {
         title: "Online Class Representation",
-        description: "Are you overwhelmed by your online courses? Do you find it challenging to keep up with assignments, projects, and exams? I offer a unique service that allows students to delegate their online coursework to a dedicated professional who will complete the courses on their behalf."
+        description: "Are you overwhelmed by your online courses? Do you find it challenging to keep up with assignments, projects, and exams? I offer a unique service that allows students to delegate their online coursework to me and I will complete the courses on their behalf."
     },
     {
         title: "Exam Support",
-        description: "I provide comprehensive exam support, including taking exams on behalf of students. I also offer valuable resources and tips to help students prepare effectively and approach their exams with confidence."
+        description: "I am able to tackle exams in a variety of courses like: Anatomy and Physiology, Biology, Chemistry, Maths, Statistics, etc."
     },
     {
         title: "Exam Resources and Tips",
-        description: "I supply a wealth of exam resources, including practice tests and study guides, along with proven strategies to help students excel. My goal is to equip students with the tools they need to succeed academically."
-    }
+        description: "I help with program entry like: TEAS, HESI A2, Kaplan entry exam, SAT/ACT, GRE, GED, MCAT, DAT, and PCAT."
+    },
+    {
+        title: "Nursing school courses",
+        description: "I help with nursing school coursework, resources and exams. The courses I do include: Fundamentals, Dosage calculations, Pharmacology,"
+    },
+];
+
+const onlineCourseInstitutions = [
+    "Portage Learning",
+    "Straighterline",
+    "Excelsior College",
+    "WGU",
+    "SNHU",
+    "Sophia",
+    "Westcostt",
+    "Walden University",
+    "Capella University",
+    "Colorado State University",
+    "Arizona State University",
+    "Penn Foster College",
+    "Thomas Edison State University"
 ];
 
 function Services() {
@@ -34,6 +54,17 @@ function Services() {
             </li>
             ))}
         </ul>
+        <div className="mt-5">
+            <div className="w-fit relative">
+            <span className="text-blue-600 font-semibold block capitalize w-fit">I do online courses for students in</span>
+            <img src="/arrowDown.svg" alt="down arrow" className='w-8 absolute -right-10 top-2' />
+            </div>
+            <ul className="flex mt-8 gap-2 gap-y-3 items-center flex-wrap">
+                {onlineCourseInstitutions.map((institution)=>(
+                    <li key={institution} className="bg-[#1f1f27] border border-[#2a2d38] rounded-2xl px-4 py-1">{institution}</li>
+                ))}
+            </ul>
+        </div>
     </div>
   )
 }

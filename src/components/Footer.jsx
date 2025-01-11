@@ -9,7 +9,7 @@ function Footer() {
             </div>
             <p className="text-sm mt-2 text-gray-500">Copyright © 2025. All rights reserved.</p>
         </div>
-        <p className="text-sm mt-2 md:mt-0 text-gray-500">Done by <a href="mailto:stayBlessed@gmail.com">@StayBlessedAfrica</a> </p>
+        <p className="text-sm mt-2 md:mt-0 text-gray-500">Done by @CorbanTechnologies </p>
     </footer>
   )
 }
