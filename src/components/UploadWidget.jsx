@@ -20,7 +20,7 @@ const UploadWidget = ({uploadedResults}) => {
         );
     },[])
     return(
-        <button type="button" className="bg-blue-600 transition-all hover:bg-blue-800 w-fit text-white px-4 py-2 rounded-md" onClick={()=>widgetRef.current.open()}>Upload</button>
+        <button type="button" className="w-fit text-white border px-4 py-2 rounded-md" onClick={()=>widgetRef.current.open()}>Upload media</button>
     )
 }
 export default UploadWidget;

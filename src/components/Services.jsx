@@ -45,7 +45,7 @@ function Services() {
   return (
     <div>
         <span className="text-blue-600 text-center font-semibold block">What I offer</span>
-        <p className="text-3xl text-center font-semibold mt-3 mb-10">Guiding You to Academic Excellence</p>
+        <p className="text-3xl text-center font-bold mt-3 mb-10">Guiding You to Academic Excellence</p>
         <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-6">
             {services.map((service, index)=>(
             <li key={index} className="bg-[#1f1f27] border border-[#2a2d38] p-5 rounded-xl transition-all duration-300 ease-in-out hover:scale-110 hover:bg-black">
@@ -57,7 +57,7 @@ function Services() {
         <div className="mt-5">
             <div className="w-fit relative">
             <span className="text-blue-600 font-semibold block capitalize w-fit">I do online courses for students in</span>
-            <img src="/arrowDown.svg" alt="down arrow" className='w-8 absolute -right-10 top-2' />
+            <img src="/arrowDown.svg" alt="down arrow" className='w-8 rotate-[70deg] md:rotate-0 absolute -right-5 md:-right-10 top-4 md:top-2' />
             </div>
             <ul className="flex mt-8 gap-2 gap-y-3 items-center flex-wrap">
                 {onlineCourseInstitutions.map((institution)=>(

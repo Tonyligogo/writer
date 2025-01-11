@@ -1,7 +1,7 @@
 
 function WhyChooseMe() {
   return (
-        <div className="py-16 md:py-10 grid grid-cols-1 md:grid-cols-2 items-center gap-5 justify-between">
+        <div className="my-10 grid grid-cols-1 md:grid-cols-2 items-center gap-5 justify-between">
             <div>
         <span className="text-blue-600 mb-4 text-center md:text-left font-semibold block">Why choose me</span>
                 <h1 className="font-bold text-center md:text-left text-3xl md:text-5xl">Your Pathway to Academic Excellence</h1>

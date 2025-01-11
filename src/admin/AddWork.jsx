@@ -66,6 +66,7 @@ function AddWork({onClose}) {
           <input
             type="text"
             id="title"
+            required
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             className="border border-[#b5b7cb] text-[#b5b7cb] rounded-md p-2 bg-transparent"
@@ -80,16 +81,18 @@ function AddWork({onClose}) {
             className="border border-[#b5b7cb] text-[#b5b7cb] rounded-md p-2 bg-transparent"
           />
         </div>
-        <div className="flex flex-col gap-1">
-          <label htmlFor="course">Title</label>
-          <input
-            type="radio"
-            id="course"
-            value="true"
-            checked={isCourse === true}
-            onChange={(e)=>setIsCourse(e.target.value === 'true')}
-            className="border border-[#b5b7cb] text-[#b5b7cb] rounded-md p-2 bg-transparent"
-          />
+        <div className="flex items-center gap-2">
+        <label htmlFor="course">
+                Is this a Course?
+            </label>
+                <input
+                id="course"
+                required
+                    type="checkbox"
+                    checked={isCourse}
+                    onChange={(e)=>setIsCourse(e.target.checked)}
+                />
+            
         </div>
         <UploadWidget uploadedResults={handleUploadedFile} />
         <button className="bg-blue-600 transition-all hover:bg-blue-800 w-fit text-white px-4 py-2 rounded-md">

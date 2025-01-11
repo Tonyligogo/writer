@@ -8,14 +8,14 @@ const services = [
 function Hero() {
   return (
     <div className="h-[95vh] md:pt-[80px] grid place-content-center">
-        <div className="relative">
+        <div className="relative py-5 md:py-0">
         <h1 className="text-2xl lg:text-5xl font-bold text-center">Online Courses help, <br /> Exam tips and resources</h1>
         <p className="text-[#a7a7a7] mt-4 text-center">Explore my comprehensive services and <br /> take the first step towards academic excellence today!</p>
         {services.map((service)=>(
             <span key={service.id}>
                 <span className={`absolute ${service.position} rounded-lg py-2 px-4 `}>
                     {service.name}
-                <img src={service?.img} alt="" className={`w-10 md:w-16 absolute ${service.imgPosition}`} />
+                <img src={service?.img} alt="arrow" className={`w-10 md:w-16 absolute ${service.imgPosition}`} />
                     </span>
             </span>
         ))}
