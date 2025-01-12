@@ -28,7 +28,6 @@ function Admin() {
         })
         .catch((error) => {
           console.log(error)
-          toast.error(error)
           setError(true)
         });
     }
