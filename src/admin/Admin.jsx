@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { server } from "../server";
 import AddWork from "./AddWork";
+import toast from "react-hot-toast";
 
 const imageFormats = ["jpeg", "jpg", "png", "gif"];
 const videoFormats = ["mp4", "webm", "ogg"];
@@ -27,6 +28,7 @@ function Admin() {
         })
         .catch((error) => {
           console.log(error)
+          toast.error(error)
           setError(true)
         });
     }

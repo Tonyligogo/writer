@@ -11,6 +11,7 @@ function Login() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true)
         const response = await fetch(`${server}/login`,{
             method: 'POST',
             headers: {

@@ -1,11 +1,13 @@
 import { useState } from "react";
 import UploadWidget from "../components/UploadWidget";
 import { server } from "../server";
+import toast from "react-hot-toast";
 
 function AddWork({onClose}) {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [isCourse, setIsCourse] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [file, setFile] = useState({
     public_id: "",
     secure_url: "",
@@ -35,6 +37,7 @@ function AddWork({onClose}) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     const data = {
       title,
       content,
@@ -49,8 +52,12 @@ function AddWork({onClose}) {
       body: JSON.stringify(data),
       credentials: "include",
     });
-    if (!response.ok) {
-      alert("Wrong credentials");
+    if (response.ok) {
+      toast.success('Work added successfully');
+      onClose();
+    }else{
+      toast.error('Wrong credentials');
+      setLoading(false);
     }
   };
 
@@ -95,8 +102,8 @@ function AddWork({onClose}) {
             
         </div>
         <UploadWidget uploadedResults={handleUploadedFile} />
-        <button className="bg-blue-600 transition-all hover:bg-blue-800 w-fit text-white px-4 py-2 rounded-md">
-          Submit
+        <button disabled={loading} className="bg-blue-600 transition-all hover:bg-blue-800 w-fit text-white px-4 py-2 rounded-md">
+          {loading ? 'Loading...' : 'Submit'}
         </button>
       </form>
     </div>
