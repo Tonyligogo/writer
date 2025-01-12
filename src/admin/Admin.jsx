@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { server } from "../server";
 import AddWork from "./AddWork";
+import toast from "react-hot-toast";
+import Updatework from "./Updatework";
 
 const imageFormats = ["jpeg", "jpg", "png", "gif"];
 const videoFormats = ["mp4", "webm", "ogg"];
@@ -9,6 +11,8 @@ function Admin() {
   const [data, setData] = useState([]);
   const [error, setError] = useState(false);
   const [addWork, setAddWork] = useState(false);
+  const [deleteModal, setDeleteModal] = useState('');
+  const [item, setItem] = useState(null);
 
   useEffect(() => {
     fetch(`${server}/profile`, {
@@ -17,21 +21,20 @@ function Admin() {
       .then((response) => response.json())
   }, []);
 
-  useEffect(() => {
-    async function fetchData() {
-      setError(false);
-      await fetch(`${server}/writer/admin`)
-        .then((response) => response.json())
-        .then((data) => {
-          setData(data);
-        })
-        .catch((error) => {
-          console.log(error)
-          setError(true)
-        });
+  const fetchData = async () => {
+    setError(false);
+    try {
+        const response = await fetch(`${server}/writer/admin`);
+        const data = await response.json();
+        setData(data);
+    } catch{
+        setError(true);
     }
+};
+
+useEffect(() => {
     fetchData();
-  }, []);
+}, []);
 
   function logout() {
     fetch(`${server}/logout`, {
@@ -41,8 +44,39 @@ function Admin() {
     window.location.href = "/";
   }
 
+  async function handleDelete(e){
+    e.preventDefault();
+    try {
+      const response = await fetch(`${server}/writer/admin/delete/work/${deleteModal}`, {
+          method: "DELETE",
+          credentials: "include",
+      })
+      if (response.ok) {
+        toast.success('Work deleted successfully',{id:'success'})
+        fetchData();
+      }else{
+        toast.error('Error deleting work! Please try again.',{id:'error'})
+      }
+  } catch{
+      toast.error('Error deleting work! Please try again later.',{id:'failure'})
+  }finally{
+    setDeleteModal('');
+  }
+  }
+
   return (
-    <div className="min-h-screen bg-dark px-4 md:px-8 text-white">
+    <div className="min-h-screen relative bg-dark px-4 md:px-8 text-white">
+      {/* delete modal */}
+      {deleteModal !== '' && <div className="absolute left-0 right-0 h-full bg-black/80 grid place-content-center">
+      <div className="bg-white rounded-lg p-4">
+        <span className="font-semibold text-lg uppercase text-red-500 block">Delete</span>
+        <p className="text-black">Are you sure you want to delete this work?</p>
+        <div className="flex justify-end gap-2 mt-5">
+          <button onClick={()=>setDeleteModal('')} className="border border-dark text-dark hover:bg-dark hover:text-white px-2 py-1 rounded-md text-sm">Cancel</button>
+          <button onClick={handleDelete} className="border border-red-300 hover:bg-red-500 hover:border-transparent hover:text-white rounded-md px-2 py-1 text-sm text-red-500">Delete</button>
+        </div>
+      </div>
+      </div>}
       <nav className="py-3 shadow-md flex justify-between items-center gap-5">
         <div className="w-[120px] md:w-[150px]">
           <h1 className="font-bold text-3xl mb-1 text-center">Writely</h1>
@@ -88,7 +122,7 @@ function Admin() {
           </svg>
         </button>
       </nav>
-      {data && !addWork && !error && (
+      {data && !addWork && !item && !error && (
         <div>
           <div className="flex justify-between items-center">
           <h2 className="text-xl md:text-2xl font-semibold underline mb-5">
@@ -114,6 +148,10 @@ function Admin() {
                     key={item?._id}
                     className="bg-[#171825] border-[#2a2d38] max-h-[400px] w-full max-w-[400px] p-3 rounded-xl flex-shrink-0"
                   >
+                    <div className="flex gap-2 justify-end mb-2">
+                      <button onClick={()=>setItem(item)} className="border bg-blue-600  border-blue-600 px-2 py-1 text-sm rounded-md">Edit</button>
+                      <button onClick={()=>setDeleteModal(item._id)} className="border bg-red-600 border-red-500 px-2 py-1 text-sm rounded-md">Delete</button>
+                    </div>
                     {isVideo ? (
                       <video
                         className="max-h-[300px] w-full"
@@ -157,6 +195,7 @@ function Admin() {
         </p>
       )}
       {addWork && <AddWork onClose={() => setAddWork(false)} />}
+      {item && <Updatework onClose={() => {setItem(false); fetchData()}} work={item} />}
     </div>
   );
 }

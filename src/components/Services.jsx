@@ -13,7 +13,7 @@ const services = [
     },
     {
         title: "Exam Support",
-        description: "I am able to tackle exams in a variety of courses like: Anatomy and Physiology, Biology, Chemistry, Maths, Statistics, etc."
+        description: "I am able to tackle exams in a variety of courses and programs."
     },
     {
         title: "Exam Resources and Tips",

@@ -15,10 +15,18 @@ function WhyChooseMe() {
                     <span className="text-[#b5b7cb]">4. A passionate and dedicated approach to fostering student success.</span>
                 </div>
                 <div className="flex justify-center md:justify-start">
-                <button className="bg-gradient-to-r from-sky-500 via-blue-500 to-blue-800 px-8 mt-8 py-2 rounded-md">Let&apos;s Talk</button>
+                <button className="bg-gradient-to-r from-sky-500 via-blue-500 to-blue-800 px-8 mt-8 py-2 rounded-md">
+                <a
+                href="https://wa.me/+254707494381"
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+               Let&apos;s Talk
+              </a>
+                </button>
                 </div>
             </div>
-            <img src="https://marveltheme.com/tf/html/genai-preview/assets/images/illustrations/feature-illustration-1-dark.svg" alt="" className="w-[90%]" />
+            <img src="/feature-illustration-1-dark.svg" alt="" className="w-[90%]" />
         </div>
 
   )

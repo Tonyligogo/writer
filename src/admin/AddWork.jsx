@@ -3,6 +3,7 @@ import UploadWidget from "../components/UploadWidget";
 import { server } from "../server";
 import toast from "react-hot-toast";
 
+// eslint-disable-next-line react/prop-types
 function AddWork({onClose}) {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -56,7 +57,7 @@ function AddWork({onClose}) {
       toast.success('Work added successfully');
       onClose();
     }else{
-      toast.error('Wrong credentials');
+      toast.error('Failed to add work. Please try again.');
       setLoading(false);
     }
   };
@@ -94,7 +95,6 @@ function AddWork({onClose}) {
             </label>
                 <input
                 id="course"
-                required
                     type="checkbox"
                     checked={isCourse}
                     onChange={(e)=>setIsCourse(e.target.checked)}

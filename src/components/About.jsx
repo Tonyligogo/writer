@@ -12,7 +12,15 @@ function About() {
             <p className="text-3xl text-center md:text-left font-bold my-3">Your Partner in Academic Success</p>
             <p className="text-[17px] text-center md:text-left tracking-wide text-[#b5b7cb]">I am a passionate educator and writer dedicated to fostering a positive learning environment. My goal is to help students navigate their academic journey and unlock their full potential by providing personalized support and guidance tailored to their unique needs.</p>
             <div className="flex justify-center md:justify-start">
-            <button className="bg-gradient-to-r from-sky-500 via-blue-500 to-blue-800 px-8 mt-8 py-2 rounded-md">Let&apos;s Talk</button>
+            <button className="bg-gradient-to-r from-sky-500 via-blue-500 to-blue-800 px-8 mt-8 py-2 rounded-md">
+            <a
+                href="https://wa.me/+254707494381"
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+               Let&apos;s Talk
+              </a>
+              </button>
             </div>
             </div>    
     </div>
