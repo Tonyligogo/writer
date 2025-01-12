@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { server } from "../server";
 import AddWork from "./AddWork";
-import toast from "react-hot-toast";
 
 const imageFormats = ["jpeg", "jpg", "png", "gif"];
 const videoFormats = ["mp4", "webm", "ogg"];
@@ -92,13 +91,13 @@ function Admin() {
       {data && !addWork && !error && (
         <div>
           <div className="flex justify-between items-center">
-          <h2 className="text-2xl font-semibold underline mb-5">
+          <h2 className="text-xl md:text-2xl font-semibold underline mb-5">
             All your works
           </h2>
           {!error && <button
           type="button"
           onClick={() => setAddWork((prev) => !prev)}
-          className="border rounded-md px-4 py-2"
+          className="border text-sm rounded-md px-3 py-2"
         >
           + Add your work
         </button>}
@@ -113,7 +112,7 @@ function Admin() {
                 return (
                   <li
                     key={item?._id}
-                    className="bg-[#171825] border-[#2a2d38] max-h-[400px] w-full max-w-[400px] p-5 rounded-xl flex-shrink-0"
+                    className="bg-[#171825] border-[#2a2d38] max-h-[400px] w-full max-w-[400px] p-3 rounded-xl flex-shrink-0"
                   >
                     {isVideo ? (
                       <video
