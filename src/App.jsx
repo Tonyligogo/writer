@@ -4,6 +4,7 @@ import Home from "./Home";
 import Register from "./auth/Register";
 import Admin from "./admin/Admin";
 import Login from "./auth/Login";
+import { Toaster } from "react-hot-toast";
 function App() {
 
   const router = createBrowserRouter([
@@ -26,7 +27,10 @@ function App() {
   ])
 
   return (
+    <>
     <RouterProvider router={router} />
+    <Toaster position='top-right'/>
+    </>
   )
 }
 

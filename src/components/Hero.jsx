@@ -15,7 +15,7 @@ function Hero() {
             <span key={service.id}>
                 <span className={`absolute ${service.position} rounded-lg py-2 px-4 `}>
                     {service.name}
-                <img src={service?.img} alt="arrow" className={`w-10 md:w-16 absolute ${service.imgPosition}`} />
+                {service.id !== 3 && <img src={service?.img} alt="arrow" className={`w-10 md:w-16 absolute ${service.imgPosition}`} />}
                     </span>
             </span>
         ))}

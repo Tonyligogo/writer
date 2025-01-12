@@ -1,11 +1,13 @@
 import { useState } from "react"
 import { server } from "../server";
 import { Navigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [redirect, setRedirect] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -18,9 +20,12 @@ function Login() {
             credentials:'include',
         })
         if(response.ok){
+            setLoading(false)
+            toast.success('Account crreated successfully')
             setRedirect(true)
         }else{
-            alert('Wrong credentials')
+            toast.error('Wrong credentials')
+            setLoading(false)
         }
     }
 
@@ -34,7 +39,7 @@ function Login() {
         <h1 className="text-2xl text-center font-semibold">Login</h1>
         <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Your email" className="border rounded-md p-2"/>
         <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Your password" className="border rounded-md p-2"/>
-        <button className="bg-dark text-white px-4 py-2 rounded-md">Login</button>
+        <button disabled={loading} className="bg-dark text-white px-4 py-2 rounded-md">{loading ? 'Loading...' : 'Login'}</button>
     </form>
     </div>
   )
