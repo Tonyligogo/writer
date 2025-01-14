@@ -21,9 +21,7 @@ function Hero() {
                     </span>}
                     {service.id === 3 && 
                 <a
-                href="https://wa.me/+12183107871"
-                target="_blank" 
-                rel="noopener noreferrer"
+                href="#contact"
                 className={`absolute ${service.position} rounded-lg py-2 px-4 `}
               >
                 {service.name}

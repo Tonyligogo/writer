@@ -32,9 +32,7 @@ function Navbar() {
             <li>
                 <button className="border rounded-lg px-4 py-2">
                 <a
-                href="https://wa.me/+12183107871"
-                target="_blank" 
-                rel="noopener noreferrer"
+                href="#contact"
               >
                 Get in touch
               </a>

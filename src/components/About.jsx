@@ -14,9 +14,7 @@ function About() {
             <div className="flex justify-center md:justify-start">
             <button className="bg-gradient-to-r from-sky-500 via-blue-500 to-blue-800 px-8 mt-8 py-2 rounded-md">
             <a
-                href="https://wa.me/+12183107871"
-                target="_blank" 
-                rel="noopener noreferrer"
+                href="#contact"
               >
                Let&apos;s Talk
               </a>

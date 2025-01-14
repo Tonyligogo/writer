@@ -1,4 +1,5 @@
 import About from "./components/About"
+import Contact from "./components/Contact"
 import Footer from "./components/Footer"
 import Hero from "./components/Hero"
 import MyWork from "./components/MyWork"
@@ -26,6 +27,9 @@ function Home() {
     </section>
     <section id="why-choose-me" className="px-4 md:px-8 scroll-mt-20 ">
       <WhyChooseMe/>
+    </section>
+    <section id="contact" className="px-4 md:px-8 scroll-mt-20 ">
+      <Contact/>
     </section>
     <footer>
       <Footer/>
