@@ -6,18 +6,18 @@ const videoFormats = ["mp4", "webm", "ogg"];
 function MyWork() {
   const [data, setData] = useState([]);
   const [coursesActive, setCoursesActive] = useState('courses');
-    useEffect(() => {
-      async function fetchData() {
-        await fetch(`${server}/writer/admin`)
-          .then((response) => response.json())
-          .then((data) => {
-            setData(data);
-          })
-      }
-      fetchData();
-    }, []);
-    const courses = data?.filter(item => item.isCourse);
-const subjects = data?.filter(item => !item.isCourse);
+//     useEffect(() => {
+//       async function fetchData() {
+//         await fetch(`${server}/writer/admin`)
+//           .then((response) => response.json())
+//           .then((data) => {
+//             setData(data);
+//           })
+//       }
+//       fetchData();
+//     }, []);
+//     const courses = data?.filter(item => item.isCourse);
+// const subjects = data?.filter(item => !item.isCourse);
   return (
     <div className="px-4 md:px-8 md:py-10 my-10">
       <span className="text-blue-600 text-center md:text-left mb-2 font-semibold block">My Work</span>
@@ -26,7 +26,7 @@ const subjects = data?.filter(item => !item.isCourse);
         <button onClick={()=>setCoursesActive('courses')} className={`${coursesActive === 'courses' ? 'bg-dark' : ''} px-2 py-1 rounded-md`}>Courses</button>
         <button onClick={()=>setCoursesActive('subjects')} className={`${coursesActive === 'subjects' ? 'bg-dark' : ''} px-2 py-1 rounded-md`}>Subjects</button>
       </div>
-      {coursesActive === 'courses' ?
+      {/* {coursesActive === 'courses' ?
       (<ul className="flex gap-5 mt-5 flex-wrap pb-5">
             {courses.length > 0 ? (
               courses?.map((item) => {
@@ -113,8 +113,7 @@ const subjects = data?.filter(item => !item.isCourse);
             ) : <p>Oops! There&apos;s nothing here.</p> }
           </ul>
           )
-
-       }
+       } */}
     </div>
   )
 }
